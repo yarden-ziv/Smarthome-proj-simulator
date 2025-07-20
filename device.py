@@ -1,6 +1,5 @@
 import json
 import logging
-from main import client_id
 import paho.mqtt.client as paho
 from paho.mqtt.properties import Properties
 from paho.mqtt.packettypes import PacketTypes
@@ -25,11 +24,13 @@ class Device:
             status: str,
             mqtt_client: paho.Client,
             logger: logging.Logger,
+            sender_id: str
     ):
         self._id: str = device_id
         self._type: DeviceType = device_type
         self._room: str = room
         self._name: str = name
+        self._sender_id = sender_id
         match self.type:
             case DeviceType.DOOR_LOCK:
                 if status not in ['unlocked', 'locked']:
@@ -95,7 +96,7 @@ class Device:
     def publish_mqtt(self, action_parameters: dict, update_parameters) -> None:
         topic = f"project/home/{self.id}"
         properties = Properties(PacketTypes.PUBLISH)
-        properties.UserProperty = [("sender_id", client_id)]
+        properties.UserProperty = [("sender_id", self._sender_id)]
         if action_parameters:
             payload = json.dumps({
                 "contents": action_parameters,

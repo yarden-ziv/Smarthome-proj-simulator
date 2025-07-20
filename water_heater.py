@@ -31,6 +31,7 @@ class WaterHeater(Device):
             device_id: str,
             room: str,
             name: str,
+            sender_id: str,
             mqtt_client: paho.Client,
             logger: logging.Logger,
             status: str = "off",
@@ -49,6 +50,7 @@ class WaterHeater(Device):
             mqtt_client=mqtt_client,
             status=status,
             logger=logger,
+            sender_id=sender_id
         )
         self._temperature: int = temperature
         if MIN_TEMPERATURE <= target_temperature <= MAX_TEMPERATURE:

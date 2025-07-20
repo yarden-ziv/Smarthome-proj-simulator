@@ -51,6 +51,7 @@ class AirConditioner(Device):
             device_id: str,
             room: str,
             name: str,
+            sender_id: str,
             mqtt_client: paho.Client,
             logger: logging.Logger,
             status: str = "off",
@@ -67,6 +68,7 @@ class AirConditioner(Device):
             mqtt_client=mqtt_client,
             status=status,
             logger=logger,
+            sender_id=sender_id
         )
         if MIN_TEMPERATURE <= temperature <= MAX_TEMPERATURE:
             self._temperature: int = temperature

@@ -23,6 +23,7 @@ class DoorLock(Device):
             device_id: str,
             room: str,
             name: str,
+            sender_id: str,
             mqtt_client: paho.Client,
             logger: logging.Logger,
             status: str = "unlocked",
@@ -37,6 +38,7 @@ class DoorLock(Device):
             mqtt_client=mqtt_client,
             status=status,
             logger=logger,
+            sender_id=sender_id
         )
         self._auto_lock_enabled = auto_lock_enabled
         if MIN_BATTERY <= battery_level <= MAX_BATTERY:

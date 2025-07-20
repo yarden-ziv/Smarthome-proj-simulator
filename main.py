@@ -46,6 +46,7 @@ def create_device(device_data: dict) -> None:
         'name': device_data['name'],
         'mqtt_client': mqtt_client,
         'logger': logger,
+        'sender_id': client_id
     }
     parameters = device_data.get("parameters", {})
     if 'status' in device_data:
