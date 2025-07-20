@@ -1,7 +1,7 @@
 # SmartHomeSimulator
 
 Part of our final project in DevSecOps course at Bar-Ilan
-University ([Main project repository](https://github.com/NadavNV/SmartHomeConfig)). The project allows viewing and
+University ([Main project repository](https://github.com/yarden-ziv/Smarthome-proj-config)). The project allows viewing and
 managing different Smart home devices such as lights, water heaters, or air conditioners.
 
 It is divided into several microservices, and this microservice simulates the behaviour of real-world devices (e.g. if a
@@ -12,7 +12,7 @@ simulate human interaction.
 
 ## Requirements
 
-- A working [backend instance](https://github.com/NadavNV/SmartHomeBackend).
+- A working [backend instance](https://github.com/yarden-ziv/Smarthome-proj-backend).
 - [Python3](https://www.python.org/downloads/)
 
 ## Usage
@@ -21,8 +21,8 @@ simulate human interaction.
     - Make sure you have python installed and a running backend instance.
     - Clone this repo:
       ```bash
-      git clone https://github.com/NadavNV/SmartHomeDashboard.git
-      cd SmartHomeDashboard
+      git clone https://github.com/yarden-ziv/Smarthome-proj-dashboard
+      cd Smarthome-proj-dashboard
       ```
     - Run `pip install -r requirements.txt`.
     - Set an environment variable named `API_URL` whose value is the full address of the backend instance, including
